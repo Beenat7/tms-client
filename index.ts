@@ -123,3 +123,27 @@ const brokenPayload: ApiResponse<Student> = {
 console.log(renderResponse(brokenPayload, (s: Student) => s.name));
 
 
+
+
+// --- EXERCISE 7 TEST CASES (Temporal Time Operations) ---
+
+// 1. Capture a UTC snapshot right now
+const approvedAt = Temporal.Now.instant();
+console.log(`Approved at (UTC Global Time): ${approvedAt.toString()}`);
+
+// 2. Convert that exact global instance into local Addis Ababa clock time
+const addisTime = approvedAt.toZonedDateTimeISO("Africa/Addis_Ababa");
+console.log(`Addis Ababa Local Time: ${addisTime.toPlainTime().toString()}`);
+
+// 3. Convert that same snapshot into London clock time to test timezone shifting
+const londonTime = approvedAt.toZonedDateTimeISO("Europe/London");
+console.log(`London Local Time: ${londonTime.toPlainTime().toString()}`);
+
+// 4. Calculate deadline durations (How many days until a class starts?)
+const courseStart = Temporal.PlainDate.from("2026-09-01"); // Target launch date
+const today = Temporal.Now.plainDateISO(); // Today's date
+const daysUntilStart = today.until(courseStart).total({ unit: "days" });
+
+console.log(`Days remaining until course starts: ${Math.floor(daysUntilStart)} days`);
+
+
