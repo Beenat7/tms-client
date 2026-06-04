@@ -3,6 +3,13 @@ import { isStudent, parseStudent } from "./models/student.model.js";
 import type { Student } from "./models/student.model.js"; // Explicitly marked as a type!
 import { calculateGrade } from "./models/assessment.model.js";
 import type { AssessmentItem } from "./models/assessment.model.js";
+
+import { describeEnrollment } from "./models/enrollment.model.js";
+import type { EnrollmentStatus } from "./models/enrollment.model.js";
+
+import { describeCourse } from "./models/course.model.js";
+import type { CourseStatus } from "./models/course.model.js";
+
 import { Temporal } from "@js-temporal/polyfill";
 
 console.log("TMS Client System Online");
@@ -49,3 +56,22 @@ console.log(`Lab grade: ${calculateGrade(lab)}%`); // 87
 // Verify readonly try this line and check the compiler error:
 //quiz.id = "QUIZ-999";
 // ERROR: Cannot assign to 'id' because it is a read-only property
+
+
+const pendingEnrollment: EnrollmentStatus = {
+  status: "PENDING",
+  requestedAt: Temporal.Now.instant(),
+  studentId: "STU-001",
+  courseId: "CRS-101"
+};
+console.log(describeEnrollment(pendingEnrollment));
+
+const activeCourse: CourseStatus = {
+  status: "ACTIVE",
+  enrolledCount: 28,
+  startDate: Temporal.PlainDate.from("2026-09-01")
+};
+console.log(describeCourse(activeCourse));
+
+
+
