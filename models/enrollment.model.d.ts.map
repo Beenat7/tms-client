@@ -1,0 +1,1 @@
+{"version":3,"file":"enrollment.model.d.ts","sourceRoot":"","sources":["enrollment.model.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,uBAAuB,CAAC;AAEjD,MAAM,WAAW,gBAAgB;IAC/B,QAAQ,CAAC,SAAS,EAAE,MAAM,CAAC;IAC3B,QAAQ,CAAC,UAAU,EAAE,MAAM,CAAC;IAC5B,UAAU,EAAE,QAAQ,CAAC,OAAO,CAAC;CAC9B"}
