@@ -33,7 +33,7 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     //  Strict Mode Flags (Instructor Requirements) 
-    "strict": true,
+    "strict": true, // This is TypeScript saying:“I refuse unsafe code.”
     "noImplicitAny": true,
     "strictNullChecks": true,
 
